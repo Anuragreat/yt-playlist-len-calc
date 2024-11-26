@@ -79,5 +79,5 @@ def static_from_root_google():
 
 if __name__ == "__main__":
     fapp.run(
-        use_reloader=True, debug=False, host="0.0.0.0", port=8000, access_log=False
+        use_reloader=True, debug=False, host="0.0.0.0", port=10000, access_log=False
     )
