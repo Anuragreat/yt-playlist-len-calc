@@ -6,6 +6,7 @@ from urllib.parse import urlencode
 import aiohttp
 
 
+# find out which time slice an time lies in, to decide which API key to use
 def find_time_slice():
     time_slice = datetime.datetime.now().time().hour // 4
     return time_slice
