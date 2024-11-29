@@ -16,7 +16,7 @@
     <title>YouTube Playlist Length</title>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6W24HY1SKP"></script>
+<!--     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6W24HY1SKP"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -27,7 +27,9 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8874895270666721"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/js/all.min.js"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
+
+    
     <!-- Halfmoon CSS -->
     <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
 
@@ -73,7 +75,7 @@
                         <div class="form-text content mx-0 my-5">
                             You can enter a playlist link, playlist ID or even a video link from the playlist!
                             <br />
-                            You can also enter a single video link or list of playlist links.
+                            Enter Link
                         </div>
                         <div class="input-group">
                             <textarea autofocus="autofocus" class="form-control"
@@ -81,10 +83,9 @@
                                 name="search_string" rows="10" required></textarea>
                         </div>
                         <div class="form-text content mx-0 my-5">
-                            Enter a range of videos to analyze. Leave blank to analyze the
-                            entire playlist.
+                            Enter a range of videos to analyze. (Optional)
                             <br />
-                            Enter a custom speed (like 2.25), and a YouTube API key to use your own.
+                            Enter a custom speed (like 2.25) (Optional).
                         </div>
                         <div class="input-group">
                             <input type="number" class="form-control" placeholder="Range start (1)" name="range_start"
@@ -93,7 +94,7 @@
                                 min="1" max="500">
                             <input type="number" class="form-control" placeholder="Custom speed (like 2.25)"
                                 name="custom_speed" min="0.1" max="10" step="0.01">
-                            <input type="text" class="form-control" placeholder="YouTube API key" name="youtube_api">
+<!--                             <input type="text" class="form-control" placeholder="YouTube API key" name="youtube_api"> -->
                             <div class="input-group-append">
                                 <button class="btn btn-primary ml-5 text-dark-dm shadow-none"
                                     type="submit">Analyze</button>
@@ -121,7 +122,7 @@
                 {% endfor %}
             </div>
 
-            <div class="container">
+<!--             <div class="container">
                 <div class="content">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8874895270666721"
                          crossorigin="anonymous"></script>
@@ -136,7 +137,7 @@
                     </script>
                     
                 </div>
-            </div>
+            </div> -->
 
 
         </div>
