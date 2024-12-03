@@ -9,7 +9,7 @@ import aiohttp
 # find out which time slice an time lies in, to decide which API key to use
 def find_time_slice():
     time_slice = datetime.datetime.now().time().hour // 4
-    return 0 #time_slice
+    return time_slice
 
 
 async def call_youtube_api(url_type, api, **kwargs):
