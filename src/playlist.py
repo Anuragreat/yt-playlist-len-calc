@@ -35,7 +35,7 @@ class Playlist:
         self.custom_speed = custom_speed
         self.start_range = start_range
         self.end_range = end_range
-        self.youtube_api = None #youtube_api
+        self.youtube_api = youtube_api
 
     async def do_async_work(self):
 
