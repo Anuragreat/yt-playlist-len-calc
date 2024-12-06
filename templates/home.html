@@ -3,13 +3,12 @@
 
 <head>
     <!-- Meta tags -->
-    <meta name="google-adsense-account" content="ca-pub-6339497432077866">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="keywords" content="YouTube playlist, duration calculator, playlist length, playback time, video time calculator" />
-    <meta name="description" content="Easily calculate the total length or duration of any YouTube playlist by simply entering its link. Instantly find out how much time you'll need to watch it at different playback speeds. Try now for accurate and quick results!" />
+<meta name="google-adsense-account" content="ca-pub-6339497432077866">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="keywords" content="YouTube playlist, duration calculator, playlist length, playback time, video time calculator, playlist time estimator, YouTube playlist duration tool, video length calculator, total playback duration, playlist manager, watch time calculator, playlist speed adjustment, YouTube video analyzer, video time estimator, content timing tool" />
+<meta name="description" content="Easily calculate the total length or duration of any YouTube playlist by entering its link. Find out how much time you'll need to watch it at different speeds." />
 
     <!-- Favicon and title -->
     <link rel="icon" href="{{url_for('static', path='/favicon.png')}}" />
@@ -35,7 +34,7 @@
     <script src="{{url_for('static', path='/form_validation.js')}}"></script>
 </head>
 
-<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-set-preferred-mode-onload="true">
+<body class="with-custom-webkit-scrollbars with-custom-css-scrollbars" data-dm-shortcut-enabled="true" data-set-preferred-mode-onload="true" data-preferred-mode="dark">
 
     <div class="page-wrapper with-navbar with-navbar-fixed-bottom">
         <div class="sticky-alerts"></div>
@@ -43,25 +42,13 @@
         <!-- Navbar start -->
         <nav class="navbar h-100 bg-light-lm">
             <div class="container-lg d-flex justify-content-center align-items-center">
-                <img src="{{url_for('static', path='/logo.png')}}" height="60" alt="YouTube Playlist Length" />
+                <img src="{{url_for('static', path='/logo.png')}}" height="60" alt="YouTube Playlist Length" alt="website logo"/>
                 <button class="btn btn-lg btn-square ml-auto position-absolute end-0" style="background: transparent; border: none; opacity: 0; width: 60px; height: 60px;" type="button" onclick="halfmoon.toggleDarkMode()">
                     <span class="sr-only">Toggle dark mode</span>
                 </button>
             </div>
         </nav>
 
-        <!-- Google Translate -->
-        <div id="google_translate_element"></div>
-        <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement({
-                    pageLanguage: 'en',
-                    includedLanguages: 'en,es,fr,de,zh,ja,hi,ar,ru,pt,it,ko',
-                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-                }, 'google_translate_element');
-            }
-        </script>
-        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
         <!-- Content wrapper start -->
         <div class="content-wrapper mt-20">
@@ -120,7 +107,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Accurate Playlist Duration Calculation</h5>
-                                <p class="card-text">Quickly calculate the total duration of your music or video playlists with precise time management.</p>
+                                <p class="card-text">Quickly calculate the total duration of your music or video playlists with precise time management, helping you plan your entertainment schedule efficiently.</p>
                             </div>
                         </div>
 
@@ -128,7 +115,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Accurate Playlist Duration Calculation</h5>
                               <p class="card-text">
-                                Quickly calculate the total duration of your music or video playlists with precise time management.
+                               Easily calculate the total duration of your music or video playlists with precise time management for better planning.
                               </p>
                             </div>
                           </div>
@@ -137,7 +124,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Easy-to-Use Interface</h5>
                               <p class="card-text">
-                                User-friendly design ensures smooth navigation and hassle-free playlist duration calculations.
+                               A user-friendly design ensures smooth navigation and hassle-free calculations of your playlist duratio
                               </p>
                             </div>
                           </div>
@@ -155,7 +142,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Customizable Settings</h5>
                               <p class="card-text">
-                                Adjust settings for hours, minutes, and seconds display, catering to diverse user preferences.
+                               Adjust settings for hours, minutes, and seconds display, catering to diverse user preferences. Enjoy a tailored experience that suits your unique time management needs.
                              </p>
                             </div>
                           </div>
