@@ -11,6 +11,8 @@ from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI
+from fastapi.responses import FileResponse
 
 from src.itemlist import ItemList
 from src.utils import find_time_slice
@@ -21,6 +23,16 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 fapp = FastAPI()
+
+
+
+
+
+@fapp.get("/ads.txt", response_class=FileResponse)
+async def get_ads_txt():
+    return "ads.txt"
+
+
 
 fapp.mount("/static", StaticFiles(directory="static"), name="static")
 
