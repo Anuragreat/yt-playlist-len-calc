@@ -79,7 +79,7 @@
         <div class="sticky-alerts"></div>
 
         <!-- Navbar start -->
-        <nav class="navbar h-100 bg-light-lm">
+<!--         <nav class="navbar h-100 bg-light-lm">
             <div class="container-lg d-flex justify-content-center align-items-center">
                 <img src="{{url_for('static', path='/logo.png')}}" height="80" alt="YouTube Playlist Length" alt="website logo"/>
                 <button class="btn btn-lg btn-square ml-auto position-absolute end-0" style="background: transparent; border: none; opacity: 0; width: 60px; height: 60px;" type="button" onclick="halfmoon.toggleDarkMode()">
@@ -87,18 +87,22 @@
                 </button>
             </div>
         </nav>
-
+ -->
 
         <!-- Content wrapper start -->
+        <div class="content-wrapper mt-20">
+            <div style="text-align: center;">
+                <img src="https://yt-playlist-len-calc.onrender.com/static/icon.png" height="400" />
+        </div>
+        
         <div class="content-wrapper mt-20">
             <div class="container px-20 h-50"></div>
             <div class="container">
                 <div class="content">
-                    <h1 class="content-title">Calculate the length of YouTube playlist:</h1>
+                     <h1 class="content-title" style="font-size: 36px;">Calculate the length of YouTube playlist:</h1> 
                     <form method="POST" onsubmit="return validateForm()">
                         <div class="form-text content mx-0 my-5">
-                            Enter a link of playlist, playlist ID or video link from the playlist.
-                            <br /> Enter the below
+                            Enter  link of playlist, playlist ID or video link from the playlist.                           
                         </div>
                         <div class="input-group">
                             <textarea autofocus="autofocus" class="form-control" placeholder="Enter Copied Link or Links Here" name="search_string" rows="10" required></textarea>
