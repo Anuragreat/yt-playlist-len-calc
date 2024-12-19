@@ -32,16 +32,9 @@ This is a web application that allows you to calculate the total duration of a Y
 - **YouTube API:** For fetching video durations
 
 ## Project Structure
-   .
-├── app.py           # Main Flask application
-├── static/
-│   ├── favicon.ico      # Favicon
-│   ├── form_validation.js  # Form Validation script 
-│   ├── logo.png       # Website logo image
-├── templates/
-│   └── index.html     # HTML template for the main page
-├── README.md          # This file
-└── manifest.json      # Manifest file for PWA
+- `app.py`: Main Flask application. `static/`: Contains assets like `favicon.ico`, `form_validation.js`, `logo.png`.
+- `templates/`: Holds `index.html` for the main page. `README.md`: This file. `manifest.json`: PWA manifest.
+
 
 
 
