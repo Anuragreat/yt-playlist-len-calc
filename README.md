@@ -28,7 +28,7 @@ This is a web application that allows you to calculate the total duration of a Y
 ## Technologies Used
 
 - **Frontend:** HTML, CSS (Halfmoon framework), JavaScript
-- **Backend:** Python (Flask)
+- **Backend:** Python (FastApi)
 - **YouTube API:** For fetching video durations
 
 ## Project Structure
