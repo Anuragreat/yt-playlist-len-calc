@@ -40,7 +40,8 @@ This is a web application that allows you to calculate the total duration of a Y
 
 ## Live Demo
 
-You can access the live demo of the project at: [https://yt-playlist-len-calc.onrender.com/](https://yt-playlist-len-calc.onrender.com/)
+You can access the live demo of the project at: [https://ytplaylist.in/]
+(https://ytplaylist.in/)
 
 ## Contributing
 
