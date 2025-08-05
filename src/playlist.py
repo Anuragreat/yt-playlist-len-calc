@@ -19,7 +19,36 @@ mongo_collection = MongoClient(os.environ["MONGO_URL"])["ytplaylistdb"][
     "ytplaylistcounts"
 ]
 
+def playlist_stars(views, likes, comments):
+    if views == 0:
+        return "☆☆☆☆☆☆☆☆☆☆ 0/10"
 
+    # Engagement ratios
+    like_ratio = likes / views
+    comment_ratio = comments / views
+
+    # Max expected ratios for scaling
+    max_like = 0.10
+    max_comment = 0.02
+
+    # Scaled score
+    score = (min(like_ratio / max_like, 1.0) * 0.6 +
+             min(comment_ratio / max_comment, 1.0) * 0.4) * 10
+
+    # Round to nearest 0.5 stars
+    rounded_score = round(score * 2) / 2  # e.g., 7.0, 7.5, 8.0
+
+    # Build the star string
+    full_stars = int(rounded_score)  # integer part
+    half_star = 1 if rounded_score % 1 >= 0.5 else 0
+    empty_stars = 10 - full_stars - half_star
+
+    # Create the star string with full, half, and empty stars
+    star_string = "★" * full_stars + "⯪" * half_star + "☆" * empty_stars
+
+    # Return both the stars and the numeric score
+    return f"{star_string} {rounded_score}/10"
+    
 class Playlist:
     def __init__(
         self,
@@ -165,6 +194,8 @@ class Playlist:
         avg_likes = total_likes // self.available_count if self.available_count else 0
         avg_comments = total_comments // self.available_count if self.available_count else 0
         avg_views = total_views // self.available_count if self.available_count else 0
+
+        quality_rating = playlist_stars(total_views, total_likes, total_comments)
     
         output_string += [
             f"Video count : {self.available_count} (from {self.start_range} to {self.end_range}) ({self.unavailable_count} unavailable)",
@@ -177,7 +208,8 @@ class Playlist:
             f"👍 Average Likes : {avg_likes}",
             f"💬 Average Comments : {avg_comments}",
             f"👀 Average Views : {avg_views}",
-            "👎 Dislikes not available via official API"
+            # "👎 Dislikes not available via official API"
+             f"🎶 Playlist Quality: {quality_rating}"
         ]
     
         if self.custom_speed:
