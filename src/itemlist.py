@@ -163,10 +163,14 @@ class ItemList:
 
         # Include similar playlists in the output string
         if self.similar_playlists:
-            output_string.append("\nSimilar Playlists:")
+            output_string.append([
+                "Similar Playlists:"
+            ])
             for playlist in self.similar_playlists:
-                output_string.append(
-                    f"ID: {playlist['id']}, Title: {playlist['title']}, Channel: {playlist['channel']}"
-                )
+                output_string.append([
+                    f"ID: {playlist['id']}",
+                    f"Title: {playlist['title']}",
+                    f"Channel: {playlist['channel']}"
+                ])
 
         return output_string
