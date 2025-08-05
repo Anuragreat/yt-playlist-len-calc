@@ -28,8 +28,8 @@ def playlist_stars(views, likes, comments):
     comment_ratio = comments / views
 
     # Max expected ratios for scaling
-    max_like = 0.10
-    max_comment = 0.02
+    max_like = 0.09
+    max_comment = 0.01
 
     # Scaled score
     score = (min(like_ratio / max_like, 1.0) * 0.6 +
@@ -200,16 +200,15 @@ class Playlist:
         output_string += [
             f"Video count : {self.available_count} (from {self.start_range} to {self.end_range}) ({self.unavailable_count} unavailable)",
             "Average video length : " + parse(self.total_duration / self.available_count),
-            "Total length : " + parse(self.total_duration),
+            "Total length : " + "\033[1m" + parse(self.total_duration) + "\033[0m",
             "At 1.25x : " + parse(self.total_duration / 1.25),
             "At 1.50x : " + parse(self.total_duration / 1.5),
             "At 1.75x : " + parse(self.total_duration / 1.75),
             "At 2.00x : " + parse(self.total_duration / 2),
-            f"👍 Average Likes : {avg_likes}",
-            f"💬 Average Comments : {avg_comments}",
-            f"👀 Average Views : {avg_views}",
-            # "👎 Dislikes not available via official API"
-            f"🎶 Playlist Quality: {quality_rating}"
+            f"Average Likes👍 : {avg_likes}",
+            f"Average Comments💬 : {avg_comments}",
+            f"Average Views👀 : {avg_views}",
+            f"Playlist Quality🎶: {quality_rating}"
         ]
     
         if self.custom_speed:
