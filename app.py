@@ -69,12 +69,12 @@ async def home(
         )
         await items.do_async_work()
         output = items.get_output_string()
-        similar_playlists = items.similar_playlists
+        similar_playlists = await get_similar_playlists(search_string, max_results=5)  #(temp) Ensure this is the correct function
 
     except Exception as e:
         output = [[f"Error: {e}"]]
         logger.error(f"{output}")
-        similar_playlists=[] #temp
+        
 
     return templates.TemplateResponse(
         "home.html", {"request": request, "playlist_detail": output,"similar_playlist": similar_playlists,} #temp
