@@ -148,36 +148,36 @@ class Playlist:
                 video = Video(video_id, data, self.custom_speed)
                 self.videos.append(video)
 
-def get_output_string(self):
-    output_string = [
-        "Playlist : " + self.playlist_name,
-        "ID : " + self.playlist_id,
-        "Creator : " + self.playlist_creator,
-    ]
+    def get_output_string(self):
+        output_string = [
+            "Playlist : " + self.playlist_name,
+            "ID : " + self.playlist_id,
+            "Creator : " + self.playlist_creator,
+        ]
 
-    if self.video_count >= 500:
-        output_string.append("No of videos limited to 500.")
+        if self.video_count >= 500:
+            output_string.append("No of videos limited to 500.")
 
-    total_likes = sum([int(x.likes) for x in self.videos_range])
-    total_comments = sum([int(x.comments) for x in self.videos_range])
-    avg_likes = total_likes // self.available_count if self.available_count else 0
-    avg_comments = total_comments // self.available_count if self.available_count else 0
+        total_likes = sum([int(x.likes) for x in self.videos_range])
+        total_comments = sum([int(x.comments) for x in self.videos_range])
+        avg_likes = total_likes // self.available_count if self.available_count else 0
+        avg_comments = total_comments // self.available_count if self.available_count else 0
 
-    output_string += [
-        f"Video count : {self.available_count} (from {self.start_range} to {self.end_range}) ({self.unavailable_count} unavailable)",
-        "Average video length : " + parse(self.total_duration / self.available_count),
-        "Total length : " + parse(self.total_duration),
-        "At 1.25x : " + parse(self.total_duration / 1.25),
-        "At 1.50x : " + parse(self.total_duration / 1.5),
-        "At 1.75x : " + parse(self.total_duration / 1.75),
-        "At 2.00x : " + parse(self.total_duration / 2),
-        f"👍 Average Likes : {avg_likes}",
-        f"💬 Average Comments : {avg_comments}",
-        "👎 Dislikes not available via official API"
-    ]
+        output_string += [
+            f"Video count : {self.available_count} (from {self.start_range} to {self.end_range}) ({self.unavailable_count} unavailable)",
+            "Average video length : " + parse(self.total_duration / self.available_count),
+            "Total length : " + parse(self.total_duration),
+            "At 1.25x : " + parse(self.total_duration / 1.25),
+            "At 1.50x : " + parse(self.total_duration / 1.5),
+            "At 1.75x : " + parse(self.total_duration / 1.75),
+            "At 2.00x : " + parse(self.total_duration / 2),
+            f"👍 Average Likes : {avg_likes}",
+            f"💬 Average Comments : {avg_comments}",
+            "👎 Dislikes not available via official API"
+        ]
 
-    if self.custom_speed:
-        output_string.append(
-            f"At {self.custom_speed:.2f}x : {parse(self.total_duration / self.custom_speed)}"
-        )
-    return output_string
+        if self.custom_speed:
+            output_string.append(
+                f"At {self.custom_speed:.2f}x : {parse(self.total_duration / self.custom_speed)}"
+            )
+        return output_string
