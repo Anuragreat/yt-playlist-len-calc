@@ -166,7 +166,7 @@ class ItemList:
         # ✅ Add similar playlists as a structured object
         if self.similar_playlists:
             output_string.append({
-                "Similar Playlists": self.similar_playlists
+                "similar_playlists": self.similar_playlists
             })
             # output_string.append(self.similar_playlists)
 
