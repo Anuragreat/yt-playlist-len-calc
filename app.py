@@ -80,7 +80,8 @@ async def home(
         
 
     return templates.TemplateResponse(
-        "home.html", {"request": request, "playlist_detail": output,"similar_playlists": similar_playlists,} #temp
+        # "home.html", {"request": request, "playlist_detail": output,"similar_playlists": similar_playlists,}
+        "home.html", {"request": request, "playlist_detail": output,"": similar_playlists,} #temp
     )
 
 
