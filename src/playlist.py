@@ -28,8 +28,8 @@ def playlist_stars(views, likes, comments):
     comment_ratio = comments / views
 
     # Max expected ratios for scaling
-    max_like = 0.30
-    max_comment = 0.06
+    max_like = 0.10
+    max_comment = 0.02
 
     # Scaled score
     score = (min(like_ratio / max_like, 1.0) * 0.6 +
