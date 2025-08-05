@@ -148,7 +148,7 @@ class Playlist:
                 video = Video(video_id, data, self.custom_speed)
                 self.videos.append(video)
 
-    def get_output_string(self):
+     def get_output_string(self):
         output_string = [
             "Playlist : " + self.playlist_name,
             "ID : " + self.playlist_id,
@@ -184,4 +184,5 @@ class Playlist:
             output_string.append(
                 f"At {self.custom_speed:.2f}x : {parse(self.total_duration / self.custom_speed)}"
             )
+        
         return output_string
