@@ -28,8 +28,8 @@ def playlist_stars(views, likes, comments):
     comment_ratio = comments / views
 
     # Max expected ratios for scaling
-    max_like = 0.09
-    max_comment = 0.01
+    max_like = 0.04
+    max_comment = 0.003
 
     # Scaled score
     score = (min(like_ratio / max_like, 1.0) * 0.6 +
@@ -200,7 +200,7 @@ class Playlist:
         output_string += [
             f"Video count : {self.available_count} (from {self.start_range} to {self.end_range}) ({self.unavailable_count} unavailable)",
             "Average video length : " + parse(self.total_duration / self.available_count),
-            "Total length : " + "\033[1m" + parse(self.total_duration) + "\033[0m",
+            "Total length : " + parse(self.total_duration),
             "At 1.25x : " + parse(self.total_duration / 1.25),
             "At 1.50x : " + parse(self.total_duration / 1.5),
             "At 1.75x : " + parse(self.total_duration / 1.75),
