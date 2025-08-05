@@ -36,23 +36,24 @@ class ItemList:
         similar_playlists = []
         for playlist in self.playlist_ids:
             try:
-                playlist_id = playlist.playlist_id  # ✅ Fix here
-                results = await self.call_similar_playlists_api(playlist_id)
+                title = playlist.playlist_name  # ✅ use title
+                results = await self.call_similar_playlists_api(title)
                 similar_playlists.extend(results)
             except Exception as e:
-                logging.error(f"Error fetching similar playlists for {playlist}: {e}")
+                logging.error(f"Error fetching similar playlists for {playlist.playlist_id}: {e}")
         self.similar_playlists = similar_playlists
 
-    async def call_similar_playlists_api(self, playlist_id): #temp
+
+    async def call_similar_playlists_api(self, playlist_title):
         base_url = "https://www.googleapis.com/youtube/v3/search"
         params = {
             "key": self.youtube_api,
             "type": "playlist",
-            "relatedToVideoId": playlist_id,
             "part": "snippet",
-            "maxResults": 5,  # Limit to 5 similar playlists
+            "maxResults": 5,
+            "q": playlist_title  # ✅ use the title as search query
         }
-
+    
         async with aiohttp.ClientSession() as session:
             async with session.get(base_url, params=params) as response:
                 data = await response.json()
@@ -62,8 +63,9 @@ class ItemList:
                         "title": item["snippet"]["title"],
                         "channel": item["snippet"]["channelTitle"],
                     }
-                    for item in data["items"]
+                    for item in data.get("items", [])  # ✅ safer
                 ]
+
 
     def get_id(self, playlist_link: str) -> Tuple[str, str]:
 
