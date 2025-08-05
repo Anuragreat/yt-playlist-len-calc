@@ -62,6 +62,7 @@ class ItemList:
                         "id": item["id"]["playlistId"],
                         "title": item["snippet"]["title"],
                         "channel": item["snippet"]["channelTitle"],
+                        "thumbnail_url": item["snippet"]["thumbnails"]["high"]["url"]
                     }
                     for item in data.get("items", [])  # ✅ safer
                 ]
