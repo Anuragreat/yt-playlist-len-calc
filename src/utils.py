@@ -11,6 +11,41 @@ def find_time_slice():
     time_slice = datetime.datetime.now().time().hour // 4
     return time_slice
 
+import aiohttp
+import os
+from urllib.parse import urlencode
+
+# Add this function to src/utils.py(temp)
+async def get_similar_playlists(query: str, max_results: int = 5):
+    youtube_api = os.getenv("YOUTUBE_API_KEY")  # Ensure this API key is correctly set in your .env file.
+    base_url = "https://www.googleapis.com/youtube/v3/search"
+
+    params = {
+        "part": "snippet",
+        "q": query,
+        "type": "playlist",
+        "maxResults": max_results,
+        "key": youtube_api,
+    }
+
+    url = f"{base_url}?{urlencode(params)}"
+    
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            data = await response.json()
+            playlists = []
+
+            for item in data.get("items", []):
+                playlist = {
+                    "id": item["id"]["playlistId"],
+                    "title": item["snippet"]["title"],
+                    "channel": item["snippet"]["channelTitle"],
+                }
+                playlists.append(playlist)
+            
+            return playlists
+
+
 
 async def call_youtube_api(url_type, api, **kwargs):
 
