@@ -148,7 +148,7 @@ class Playlist:
                 video = Video(video_id, data, self.custom_speed)
                 self.videos.append(video)
 
-    def get_output_string(self):
+def get_output_string(self):
     output_string = [
         "Playlist : " + self.playlist_name,
         "ID : " + self.playlist_id,
