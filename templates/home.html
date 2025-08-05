@@ -83,14 +83,15 @@
         }
 
         .playlist-card {
+            
             display: flex;
-            flex-direction: column;
             background-color: #191C20;
             border-radius: 5px;
+            margin-bottom: 5px;
+            overflow: hidden;
             text-decoration: none;
             color: white;
             transition: transform 0.2s, box-shadow 0.2s;
-            height: 100%;
         }
 
         .playlist-card:hover {
@@ -99,13 +100,16 @@
         }
 
         .playlist-thumbnail {
-            width: 100%;
-            height: 180px;
+            width: 160px;
+            height: 90px;
             object-fit: cover;
         }
 
         .playlist-info {
             padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .playlist-title {
@@ -115,7 +119,7 @@
         }
 
         .playlist-channel {
-            font-size: 12px;
+            font-size: 10px;
             color: #ccc;
         }
     </style>
@@ -172,19 +176,25 @@
                     </form>
                 </div>
             </div>
-            
-            
-            <!--Google adsense  -->
-            <ins class="adsbygoogle"
-                style="display: block"
-                  data-ad-client="ca-pub-6339497432077866"
-                  data-ad-slot="your-ad-slot"
-                  data-ad-format="auto"
-                  data-full-width-responsive="true"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
 
+            <!-- Backend logic support -->
+<!--             <div class="container">
+                {% for block in playlist_detail %}
+                <div class="card">
+                    <div class="card-body">
+                        {% for x in block %}
+                        {% if loop.first %}
+                        <p class="first-line" style="font-weight: bold;">{{ x | safe }}</p>
+                        {% else %}
+                        <p class="description">{{ x | safe }}</p>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div> -->
+
+  <div class="container">
     {% for block in playlist_detail %}
     <div class="card">
         <div class="card-body">
@@ -199,20 +209,32 @@
     </div>
     {% endfor %}
 
-    <div class="row">
-        {% for playlist in similar_playlists %}
-        <div class="col-md-4 mb-10">
-            <a href="https://www.youtube.com/playlist?list={{ playlist.id }}" class="playlist-card d-block h-100" target="_blank">
-                <img src="{{ playlist.thumbnail_url }}" alt="Thumbnail" class="playlist-thumbnail w-100">
-                <div class="playlist-info">
-                    <div class="playlist-title">{{ playlist.title }}</div>
-                    <div class="playlist-channel">Channel: {{ playlist.channel }}</div>
-                </div>
-            </a>
-        </div>
+    {% for playlist in similar_playlists %}
+        <a href="https://www.youtube.com/playlist?list={{ playlist.id }}" class="playlist-card" target="_blank">
+            <img src="{{ playlist.thumbnail_url }}" alt="Thumbnail" class="playlist-thumbnail">
+            <div class="playlist-info">
+                <div class="playlist-title">{{ playlist.title }}</div>
+                <div class="playlist-channel">Channel: {{ playlist.channel }}</div>
+            </div>
+        </a>
         {% endfor %}
-    </div>
+
   </div>
+
+
+
+
+
+            <!--Google adsense  -->
+            <ins class="adsbygoogle"
+                style="display: block"
+                  data-ad-client="ca-pub-6339497432077866"
+                  data-ad-slot="your-ad-slot"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
 
 
             <!-- Descriptions -->
@@ -327,7 +349,7 @@
                             <div class="card" >
                                 <div class="card-body">
                                     <h5 class="card-title">Dark Mode Available</h5>
-                                    <p class="card-text">
+                                    <p class="card-text">       
                                     Enjoy a comfortable user experience with a dark mode option for your comfort.      
                                     </p>
                             </div>
