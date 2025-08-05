@@ -154,15 +154,18 @@ class Playlist:
             "ID : " + self.playlist_id,
             "Creator : " + self.playlist_creator,
         ]
-
+    
         if self.video_count >= 500:
             output_string.append("No of videos limited to 500.")
-
+    
         total_likes = sum([int(x.likes) for x in self.videos_range])
         total_comments = sum([int(x.comments) for x in self.videos_range])
+        total_views = sum([int(x.views) for x in self.videos_range])
+    
         avg_likes = total_likes // self.available_count if self.available_count else 0
         avg_comments = total_comments // self.available_count if self.available_count else 0
-
+        avg_views = total_views // self.available_count if self.available_count else 0
+    
         output_string += [
             f"Video count : {self.available_count} (from {self.start_range} to {self.end_range}) ({self.unavailable_count} unavailable)",
             "Average video length : " + parse(self.total_duration / self.available_count),
@@ -173,9 +176,10 @@ class Playlist:
             "At 2.00x : " + parse(self.total_duration / 2),
             f"👍 Average Likes : {avg_likes}",
             f"💬 Average Comments : {avg_comments}",
+            f"👀 Average Views : {avg_views}",
             "👎 Dislikes not available via official API"
         ]
-
+    
         if self.custom_speed:
             output_string.append(
                 f"At {self.custom_speed:.2f}x : {parse(self.total_duration / self.custom_speed)}"
