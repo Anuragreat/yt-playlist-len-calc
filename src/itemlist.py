@@ -36,8 +36,8 @@ class ItemList:
         similar_playlists = []
         for playlist in self.playlist_ids:
             try:
-                # Fetch similar playlists for the current playlist
-                results = await self.call_similar_playlists_api(playlist)
+                playlist_id = playlist.playlist_id  # ✅ Fix here
+                results = await self.call_similar_playlists_api(playlist_id)
                 similar_playlists.extend(results)
             except Exception as e:
                 logging.error(f"Error fetching similar playlists for {playlist}: {e}")
