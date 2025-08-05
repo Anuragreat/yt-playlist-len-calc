@@ -177,7 +177,7 @@ class Playlist:
                 video = Video(video_id, data, self.custom_speed)
                 self.videos.append(video)
 
-     def get_output_string(self):
+    def get_output_string(self):
         output_string = [
             "Playlist : " + self.playlist_name,
             "ID : " + self.playlist_id,
@@ -209,7 +209,7 @@ class Playlist:
             f"💬 Average Comments : {avg_comments}",
             f"👀 Average Views : {avg_views}",
             # "👎 Dislikes not available via official API"
-             f"🎶 Playlist Quality: {quality_rating}"
+            f"🎶 Playlist Quality: {quality_rating}"
         ]
     
         if self.custom_speed:
