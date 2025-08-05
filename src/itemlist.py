@@ -23,10 +23,46 @@ class ItemList:
         self.custom_speed = custom_speed
         self.youtube_api = youtube_api
         self.playlist_ids, self.video_ids = self.get_item_ids()
+        self.similar_playlists = []  # Store similar playlists here  (temp)
 
     async def do_async_work(self):
         await self.populate_playlist_names()
         await self.populate_video_names()
+        await self.fetch_similar_playlists()  # Fetch similar playlists(temp)
+
+     # Fetch similar playlists based on a playlist ID(temp)
+    async def fetch_similar_playlists(self):
+        similar_playlists = []
+        for playlist in self.playlist_ids:
+            try:
+                # Fetch similar playlists for the current playlist
+                results = await self.call_similar_playlists_api(playlist)
+                similar_playlists.extend(results)
+            except Exception as e:
+                logging.error(f"Error fetching similar playlists for {playlist}: {e}")
+        self.similar_playlists = similar_playlists
+
+    async def call_similar_playlists_api(self, playlist_id): #temp
+        base_url = "https://www.googleapis.com/youtube/v3/search"
+        params = {
+            "key": self.youtube_api,
+            "type": "playlist",
+            "relatedToVideoId": playlist_id,
+            "part": "snippet",
+            "maxResults": 5,  # Limit to 5 similar playlists
+        }
+
+        async with aiohttp.ClientSession() as session:
+            async with session.get(base_url, params=params) as response:
+                data = await response.json()
+                return [
+                    {
+                        "id": item["id"]["playlistId"],
+                        "title": item["snippet"]["title"],
+                        "channel": item["snippet"]["channelTitle"],
+                    }
+                    for item in data["items"]
+                ]
 
     def get_id(self, playlist_link: str) -> Tuple[str, str]:
 
@@ -110,7 +146,7 @@ class ItemList:
         videos = list(dict.fromkeys(videos))
         return playlists, videos
 
-    def get_output_string(self):
+    def get_output_string(self): #(temp)
         output_string = []
 
         if not self.playlist_ids and not self.video_ids:
@@ -121,5 +157,13 @@ class ItemList:
 
         for video in self.video_ids:
             output_string += [video.get_output_string()]
+
+        # Include similar playlists in the output string
+        if self.similar_playlists:
+            output_string.append("\nSimilar Playlists:")
+            for playlist in self.similar_playlists:
+                output_string.append(
+                    f"ID: {playlist['id']}, Title: {playlist['title']}, Channel: {playlist['channel']}"
+                )
 
         return output_string
