@@ -162,15 +162,15 @@ class ItemList:
             output_string += [video.get_output_string()]
 
         # Include similar playlists in the output string
-        if self.similar_playlists:
-            output_string.append([
-                "Similar Playlists:"
-            ])
-            for playlist in self.similar_playlists:
-                output_string.append([
-                    f"ID: {playlist['id']}",
-                    f"Title: {playlist['title']}",
-                    f"Channel: {playlist['channel']}"
-                ])
+        # if self.similar_playlists:
+        #     output_string.append([
+        #         "Similar Playlists:"
+        #     ])
+        #     for playlist in self.similar_playlists:
+        #         output_string.append([
+        #             f"ID: {playlist['id']}",
+        #             f"Title: {playlist['title']}",
+        #             f"Channel: {playlist['channel']}"
+        #         ])
 
         return output_string
