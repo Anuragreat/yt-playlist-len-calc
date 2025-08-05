@@ -126,7 +126,7 @@
             </div>
 
             <!-- Backend logic support -->
-            <div class="container">
+<!--             <div class="container">
                 {% for block in playlist_detail %}
                 <div class="card">
                     <div class="card-body">
@@ -140,14 +140,48 @@
                     </div>
                 </div>
                 {% endfor %}
-            </div>
+            </div> -->
+
+            <div class="container">
+    {% for block in playlist_detail %}
+    <div class="card">
+        <div class="card-body">
+            {% for x in block %}
+            {% if loop.first %}
+            <p class="first-line" style="font-weight: bold;">{{ x | safe }}</p>
+            {% else %}
+            <p class="description">{{ x | safe }}</p>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if similar_playlists %}
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 style="font-weight: bold;">Similar Playlists</h5>
+            <ul>
+                {% for playlist in similar_playlists %}
+                <li>
+                    <a href="https://www.youtube.com/playlist?list={{ playlist.id }}" target="_blank">
+                        {{ playlist.title }}
+                    </a> (Channel: {{ playlist.channel }})
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
 
 
 
 
 <!--             Google adsense  -->
             <ins class="adsbygoogle"
-                style="display:block"
+                style="display: block"
                  data-ad-client="ca-pub-6339497432077866"
                  data-ad-slot="your-ad-slot"
                  data-ad-format="auto"
@@ -172,7 +206,24 @@
                             <div class="card-body">
                               <h5 class="card-title">Accurate Playlist Duration Calculation</h5>
                               <p class="card-text">
-                               Easily calculate the total duration of any youtube playlist with precise playback speed for better planning. Apart from that you can choose a segment or section of the playlist to do calculation for.
+                               Easily calculate the total duration of any YouTube playlist with precise playback speed for better planning. Apart from that you can choose a segment or section of the playlist to do calculation for.
+                              </p>
+                            </div>
+                          </div>
+                        <div class="card" >
+                            <div class="card-body">
+                              <h5 class="card-title">Similar Playlists</h5>
+                              <p class="card-text">
+                               Easily get a similar playlist to your entered playlist, making it easier to choose the right playlist for you.
+                              </p>
+                            </div>
+                          </div>
+
+                        <div class="card" >
+                            <div class="card-body">
+                              <h5 class="card-title">Total Engagement</h5>
+                              <p class="card-text">
+                              Get the average likes, comments, and views of the playlist and the quality of the playlist.
                               </p>
                             </div>
                           </div>
