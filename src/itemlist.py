@@ -2,6 +2,7 @@ import asyncio
 import logging
 import re
 from typing import Tuple
+import aiohttp
 
 from src.playlist import Playlist
 from src.utils import call_youtube_api, find_time_slice
