@@ -200,7 +200,7 @@ class Playlist:
         output_string += [
             f"Video count : {self.available_count} (from {self.start_range} to {self.end_range}) ({self.unavailable_count} unavailable)",
             "Average video length : " + parse(self.total_duration / self.available_count),
-            "Total length : " + parse(self.total_duration),
+            "TOTAL LENGTH : " + parse(self.total_duration),
             "At 1.25x : " + parse(self.total_duration / 1.25),
             "At 1.50x : " + parse(self.total_duration / 1.5),
             "At 1.75x : " + parse(self.total_duration / 1.75),
