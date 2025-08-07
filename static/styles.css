@@ -1,0 +1,354 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  
+
+  background: linear-gradient(180deg, #000000 0%, #5C6AC4 100%);
+  /*background-color: #0c0c1e;*/
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  padding: 0px;
+}
+
+/* Section container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+}
+
+.title {
+  margin-top: 20rem;
+  font-size: 8rem;
+  font-weight: 700; /* Slightly more bold than 300 */
+  text-align: center;
+  color: transparent; /* Make text transparent */
+  font-family: Helvetica, sans-serif;
+  -webkit-text-stroke: 1.5px #ffffff; /* White border around the text */
+
+}
+
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Textarea */
+.input-box {
+  width: 100%;
+  height: 100px;
+  background-color: #2f2f4f;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  font-size: 1rem;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+/* Input Group */
+.input-group {
+  margin-top: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2px;
+    align-items: center;
+    padding: 0px;
+    border-radius: 6px;
+}
+
+.input-group input {
+    background-color: #2f2f4f;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+.input-group input::placeholder {
+  color: #aaa;
+}
+
+.input-group button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.input-group button:hover {
+  background-color: darkred;
+}
+
+/*playlist card*/
+/* Container for all playlists */
+.playlist-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.playlist-card:hover {
+  background-color: rgba(17, 17, 17, 0.9);
+  box-shadow: 0 0 12px 2px rgba(0, 136, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.playlist-card {
+  display: flex;
+  background-color: #0c0c13;
+  border: 1px solid #2d2d2d;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.playlist-thumbnail {
+  width: 200px;
+  height: 112px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.playlist-info {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.playlist-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: white;
+}
+
+.playlist-channel {
+  font-size: 13px;
+  color: #999;
+}
+
+
+/* Result Boxes */
+.result-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box {
+  transition: all 0.3s ease;
+  background-color: #0c0c13;
+  padding: 40px;
+  border-radius: 8px;
+  border: 1px solid #2d2d2d;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+}
+.box:hover {
+  background-color: rgba(17, 17, 17, 0.9); /* slightly transparent */
+  box-shadow: 0 0 12px 2px rgba(0, 136, 255, 0.5); /* glow */
+  transform: translateY(-2px); /* optional: subtle lift */
+  cursor: pointer;
+}
+
+.box h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* GitHub Cards */
+.github-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  background-color: #0c0c13;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(240, 246, 252, 0.1);
+  border-radius: 8px;
+  padding: 2rem;
+  flex: 1 1 100%;
+  max-width: 100%;
+  box-shadow: 0 0 0 1px rgba(240, 246, 252, 0.05);
+}
+.card:hover {
+  background-color: rgba(17, 17, 17, 0.9); /* slightly transparent */
+  box-shadow: 0 0 12px 2px rgba(0, 136, 255, 0.5); /* glow */
+  transform: translateY(-2px); /* optional: subtle lift */
+  cursor: pointer;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f6fc;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #8b949e;
+}
+
+.card p strong {
+  color: #c9d1d9;
+}
+
+@media (min-width: 768px) {
+  .card {
+    flex: 1 1 calc(50% - 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    flex: 1 1 calc(33.333% - 2rem);
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #0a0e14;
+  padding: 40px 60px 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  color: #a7adb9;
+}
+
+.footer-left {
+  max-width: 300px;
+}
+
+.footer-left h2 {
+  color: white;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+
+.footer-left strong {
+  color: white;
+}
+
+.subscribe-btn {
+  margin: 15px 0 25px;
+  padding: 10px 25px;
+  background: none;
+  border: 1px solid #484f58;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.subscribe-btn:hover {
+  background-color: #484f58;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+.footer-columns {
+  display: flex;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 130px;
+}
+
+.footer-column strong {
+  color: #687184;
+  font-weight: normal;
+  margin-bottom: 12px;
+}
+
+.footer-column a {
+  color: #687184;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  background-color: #10151e;
+  padding: 20px 60px;
+  font-size: 13px;
+  color: #4d5361;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bottom a {
+  color: #4d5361;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  footer {
+    flex-direction: column;
+  }
+
+  .footer-columns {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
